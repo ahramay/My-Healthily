@@ -1,0 +1,30 @@
+.toolbar{
+    min-height: 48px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.toolbar_subHeader{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.toolbar_items{
+    min-height: 48px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.toolbar_graph_items{
+    min-height: 38px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.item_menu{
+    font-size: 13px !important;
+}
+.toolbar_item_menu{
+    min-height: 30px !important;
+}
+.toolbar_search_menu{
+    min-height: 30px !important;
+    justify-content: space-between;
+}

@@ -1,0 +1,62 @@
+
+Forecast:
+
+/api/forecasts
+
+{  // missing asset id
+	+tagID, // used this for asset ID
+	name,   // system name from db
+	forecastDate, // date time string
+	forecasterID,  // ?
+	components: [
+		{ // ForecastComponent
+			
+			+portfolioSerialID: int ??? assetID?!?
+			+componentType: 1, 2, 3 ???  point, min, max
+			+metricType: 0,1 ?  Price, Volatility(later)
+			+targetDate:  int(months), or date in unix time?  int32
+			+forecastDateType 0 (months above) 1 (fixed date)
+			+shiftType: 0, 1 ?,  return, targetlevel(later) (absolute, relative)
+			-value: float  // not required?!?
+		}
+	]
+}
+
+/api/scenarios
+
+{ // ForecastAggregation
+	id,
+	+tagID,
+	name,
+	+visibility
+	permissions: []
+	components: [
+		{
+			forcastSerialID: int32 ??
+			forcastWeight: float
+		}
+	]
+}
+
+/api/jobs POST
+{
+	simulatorCalcSerialID: int32, // looks like we need this first
+	valuationDate: 'date',
+	runDate: 'date',      // whats the dif?
+	calcStatus
+	calcResult
+	id: int32
+}
+
+/api/calcsettings
+{
+	name: '',
+	valuationDate: 'date',
+	portfolioSerialID: a portfolioID int32,
+	scenarios: [{ scenarioSerialID: int32 }, ...]
+	numberOfSamples: int32,  // 10k, 100k, 1m
+	modelHorizon: int32,
+	modelFrequency: int32,
+	forecastHorizon: int32, // google blockly? 
+	id: '',
+}

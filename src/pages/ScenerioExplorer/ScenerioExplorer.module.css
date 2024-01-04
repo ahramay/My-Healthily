@@ -1,0 +1,82 @@
+.tray_container {
+  width: 290px;
+  height: auto;
+  padding: 20px 15px;
+  border-right: 1px solid #c6c6c6;
+  background-color: white;
+}
+.section1 {
+  border-bottom: 1px solid #c6c6c6;
+  margin-bottom: 15px;
+}
+.section2 {
+  border-bottom: 1px solid #c6c6c6;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.section3 {
+  border-bottom: 1px solid #c6c6c6;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.section4 {
+  border-bottom: 1px solid #c6c6c6;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.committee_icons {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.caption1 {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px !important;
+  line-height: 16px;
+}
+
+.caption2 {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px !important;
+  line-height: 18px;
+}
+.caption3 {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px !important;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: 0.16px;
+}
+.scenarioConvention {
+ display: flex;
+}
+.imgBorder {
+    border: 1px solid #C6C6C6;
+}
+.scenerioX_axis {
+    text-align:center;
+    margin: 10px auto 0 auto;
+}
+.mainScenerio {
+    flex-grow: 1;
+    margin-top: 60px;
+}
+.scenerioTopbar {
+    display: flex;
+    justify-content: space-between;
+    color: #014547
+}
+.IconsBox {
+    display: 'flex';
+    align-items: center
+}
+.mainChildGrid {
+    display: flex;
+}

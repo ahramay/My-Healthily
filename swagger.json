@@ -1,0 +1,1657 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Sapiat Scenario Server API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/idmaps": {
+      "get": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Get the list of aset ID maps",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/idmaps/{id}": {
+      "get": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Get an asset ID mapping",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Alphanumeric system asset ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Alphanumeric system asset ID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Save an asset ID mapping",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Alphanumeric system asset ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Alphanumeric system asset ID",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID map object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssetIDMap"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssetIDMap"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssetIDMap"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Delete an asset ID mapping",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Alphanumeric system asset ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Alphanumeric system asset ID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/assets": {
+      "get": {
+        "tags": [
+          "Factor Model"
+        ],
+        "summary": "Get info for all assets available in the model",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Optional valuation date in yyyyMMdd format",
+            "schema": {
+              "type": "string",
+              "description": "Optional valuation date in yyyyMMdd format",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "assetClass",
+            "in": "query",
+            "description": "Optional asset class filter",
+            "schema": {
+              "type": "string",
+              "description": "Optional asset class filter",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Optional currency ISO code filter",
+            "schema": {
+              "type": "string",
+              "description": "Optional currency ISO code filter",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Optional country ISO code filter",
+            "schema": {
+              "type": "string",
+              "description": "Optional country ISO code filter",
+              "default": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/assets/{id}": {
+      "get": {
+        "tags": [
+          "Factor Model"
+        ],
+        "summary": "Get info for a single asset",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Asset ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Asset ID",
+              "nullable": true
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Optional valuation date in yyyyMMdd format",
+            "schema": {
+              "type": "string",
+              "description": "Optional valuation date in yyyyMMdd format",
+              "default": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/portfolios": {
+      "get": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "Get the list of portfolios currently defined in the DB",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "Save a portfolio with a new auto-generated tag ID",
+        "requestBody": {
+          "description": "Portfolio object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/portfolios/{id}": {
+      "get": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "Get a portfolio",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer portfolio ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer portfolio ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Portfolios"
+        ],
+        "summary": "Save a portfolio with a known ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer portfolio ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer portfolio ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Portfolio object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Portfolio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Portfolios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/forecasts": {
+      "get": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Get the list of available forecasts",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Save a forecast with a new  ID",
+        "requestBody": {
+          "description": "Forecast object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/forecasts/{id}": {
+      "get": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Get a forecast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer forecast ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer forecast ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Save a forecast with a known ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer forecast ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer forecast ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Forecast object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Forecast"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Delete a forecast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Alphanumeric forecast ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Alphanumeric forecast ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/scenarios": {
+      "get": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Get the list of available scenarios - confidence weighted combinations of forecasts",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Save a scenario with a new auto-generated ID",
+        "requestBody": {
+          "description": "Scenario object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/scenarios/{id}": {
+      "get": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Get a scenario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer scenario ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer scenario ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Save a scenario with a known ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer scenario ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer scenario ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Scenario object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastAggregation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "Delete a scenario",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer scenario ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer scenario ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/calcsettings": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get the list of simulator calc settings currently defined in the DB",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Save a new sim calc settings object",
+        "requestBody": {
+          "description": "Simulator calc settings object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/calcsettings/{id}": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get a simulator calc settings object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer calc settings ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer calc settings ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Save a simulator calc settings with a known ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer sim calc settings ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer sim calc settings ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Simulator calc settings object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulatorCalc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Simulations"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/jobs": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get the list of submitted jobs",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field to sort on with -asc or -desc.  Only rundate supported for now.  Default is rundate-desc",
+            "schema": {
+              "type": "string",
+              "description": "Field to sort on with -asc or -desc.  Only rundate supported for now.  Default is rundate-desc",
+              "default": "rundate-desc",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of items to return at a time.  Default is 20",
+            "schema": {
+              "type": "integer",
+              "description": "Number of items to return at a time.  Default is 20",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Which page to return.  Default is 1",
+            "schema": {
+              "type": "integer",
+              "description": "Which page to return.  Default is 1",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Submit a job for calculation using the provided simulation calc settings and valuation date",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulationJob"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulationJob"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulationJob"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/jobs/{id}": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get a submitted job",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Integer job ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Integer job ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/simdata": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get a list of all jobs that have simulation results",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field to sort on with -asc or -desc.  Only rundate supported for now.  Default is rundate-desc",
+            "schema": {
+              "type": "string",
+              "description": "Field to sort on with -asc or -desc.  Only rundate supported for now.  Default is rundate-desc",
+              "default": "rundate-desc",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of items to return at a time.  Default is 20",
+            "schema": {
+              "type": "integer",
+              "description": "Number of items to return at a time.  Default is 20",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Which page to return.  Default is 1",
+            "schema": {
+              "type": "integer",
+              "description": "Which page to return.  Default is 1",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/simdata/{id}": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "summary": "Get calc results data for the given single-scenario simulation and optionally specified result set",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The integer job serial ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "The integer job serial ID",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dataset",
+            "in": "query",
+            "description": "Optional dataset to return, default is summary",
+            "schema": {
+              "type": "string",
+              "description": "Optional dataset to return, default is summary",
+              "default": "summary",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/simcharts/{id}": {
+      "get": {
+        "tags": [
+          "Simulations"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "ridge",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get the list of users for this client",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Add new user",
+        "requestBody": {
+          "description": "User details object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get details for a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "User ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Save user details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "User ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "User details object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "User ID",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssetIDMap": {
+        "required": [
+          "assetID"
+        ],
+        "type": "object",
+        "properties": {
+          "assetID": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "userAssetID": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAssetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PortfolioType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "What the portfolio is used for\r\n0 = No particular use, 1 = Asset holdings, 2 = Used as basis for forecasts",
+        "format": "int32"
+      },
+      "QuantityType": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "What the holdings quantity represents:\r\n1 = Values, 2 = Number of shares (not yet supported)",
+        "format": "int32"
+      },
+      "PublishType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "Who can view the object\r\n0 = Private, 1 = Public, 2 = Permissioned to selected users",
+        "format": "int32"
+      },
+      "PortfolioHolding": {
+        "required": [
+          "assetID"
+        ],
+        "type": "object",
+        "properties": {
+          "assetID": {
+            "maxLength": 12,
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double"
+          },
+          "hedgeRatio": {
+            "type": "number",
+            "format": "double"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermissionLevel": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "description": "What level of permissions are allowed\r\n0 = None, 1 = Read only, 2 = Read/write, 3 = Read/write/delete",
+        "format": "int32"
+      },
+      "Permission": {
+        "required": [
+          "permissions",
+          "permittedClientSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "permittedClientSerialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/PermissionLevel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Portfolio": {
+        "required": [
+          "holdingsType",
+          "tagID",
+          "usageType",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "tagID": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Optional 20ch alphanumeric portfolio identifier, e.g. GLOBEQ01"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the portfolio e.g. 'Global Equities'",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Long description e.g. 'Global equities portfolio with 50/25/25 US/Europe/RoW split'",
+            "nullable": true
+          },
+          "usageType": {
+            "$ref": "#/components/schemas/PortfolioType"
+          },
+          "holdingsType": {
+            "$ref": "#/components/schemas/QuantityType"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/PublishType"
+          },
+          "holdings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioHolding"
+            },
+            "nullable": true
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Portfolio object"
+      },
+      "ForecastType": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "description": "The nature of the forecast - fixed point or range etc\r\n1 = Point, 2 = Minimum, 3 = Maximum",
+        "format": "int32"
+      },
+      "ForecastMetric": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "description": "The quantity the forecast applies to\r\n0 = Price, 1 = Volatility",
+        "format": "int32"
+      },
+      "TenorType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "description": "What the target date / tenor represents\r\n0 = Floating time period relative to valuation date, 1 = Fixed date",
+        "format": "int32"
+      },
+      "ForecastShiftType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "description": "What the shift represents\r\n0 = Return i.e. change in level, 1 = Target level",
+        "format": "int32"
+      },
+      "ForecastComponent": {
+        "required": [
+          "componentType",
+          "forecastDateType",
+          "metricType",
+          "portfolioSerialID",
+          "shiftType",
+          "singleIndexID",
+          "targetDate"
+        ],
+        "type": "object",
+        "properties": {
+          "singleIndexID": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Reference index ID when forecast component is for a single index.  Set to empty string when using a portfolio instead."
+          },
+          "portfolioSerialID": {
+            "type": "integer",
+            "description": "Referenced portfolio ID when forecasting using a portfolio not a single index.  Set to 0 when using a single index instead.",
+            "format": "int32"
+          },
+          "componentType": {
+            "$ref": "#/components/schemas/ForecastType"
+          },
+          "metricType": {
+            "$ref": "#/components/schemas/ForecastMetric"
+          },
+          "targetDate": {
+            "type": "integer",
+            "description": "Default this is a floating tenor in months, if fixed date then this is the datetime value cast to int",
+            "format": "int32"
+          },
+          "forecastDateType": {
+            "$ref": "#/components/schemas/TenorType"
+          },
+          "shiftType": {
+            "$ref": "#/components/schemas/ForecastShiftType"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Forecast": {
+        "required": [
+          "tagID"
+        ],
+        "type": "object",
+        "properties": {
+          "tagID": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "forecastDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "forecasterID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ForecastComponent"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScenarioType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "description": "What the scenario refers to.\r\n0 = None, 1 = Outlook, 2 = Downside, 3 = Thematic, 4 = Geopolitical, 5 = Climate",
+        "format": "int32"
+      },
+      "ForecastAggregationComponent": {
+        "required": [
+          "forecastSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "forecastSerialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "forecastWeight": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForecastAggregation": {
+        "required": [
+          "tagID",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "tagID": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "scenarioDate": {
+            "type": "string",
+            "description": "Date the scenario was defined",
+            "format": "date-time"
+          },
+          "themeType": {
+            "$ref": "#/components/schemas/ScenarioType"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/PublishType"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ForecastAggregationComponent"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimulatorCalcScenario": {
+        "required": [
+          "scenarioSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "scenarioSerialID": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimulatorCalc": {
+        "required": [
+          "portfolioSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Long description e.g. \"Demo mixed-asset portfolio with macro forecasts\"",
+            "nullable": true
+          },
+          "portfolioSerialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimulatorCalcScenario"
+            },
+            "nullable": true
+          },
+          "numberOfSamples": {
+            "type": "integer",
+            "description": "Number of simulation samples to run",
+            "format": "int32"
+          },
+          "modelHorizon": {
+            "type": "integer",
+            "description": "Which model to use - currently only option is 7 = weekly model",
+            "format": "int32"
+          },
+          "samplingInterval": {
+            "type": "integer",
+            "description": "Interval between steps in the simulation as multiple of the model horizon, \r\ne.g. 13 = 13 weeks (quarterly), 26 = 26 weeks (semi-annual), 52 = 52 weeks (annual)",
+            "format": "int32"
+          },
+          "forecastHorizon": {
+            "type": "integer",
+            "description": "Total length of scenario simulation as multiple of the model horizon.  \r\nThis must be an integer multiple of the SamplingInterval.  \r\nE.g. SamplingInterval = 26 (semi-annual), ForecastHorizon could be 52 (=1y), 78 (=18m), 104 (=2y) etc",
+            "format": "int32"
+          },
+          "reportingCurrency": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Reporting currency ISO code",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JobResult": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "Primary outcome of the job\r\n0 = Failed, 1 = Success, 2 = Cancelled",
+        "format": "int32"
+      },
+      "SimulationJob": {
+        "required": [
+          "runDate",
+          "simulatorCalcSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "simulatorCalcSerialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "runDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "calcStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "calcResult": {
+            "$ref": "#/components/schemas/JobResult"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRole": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "UserStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "User": {
+        "required": [
+          "authenticationID",
+          "clientSerialID"
+        ],
+        "type": "object",
+        "properties": {
+          "serialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "authenticationID": {
+            "type": "string",
+            "description": "this will be the Auth0 'NameIdentifier' e.g. \"auth0|ebeb745be85b45b48b\" or \"google-oauth2|bob@gmail.com\"\r\nthis only used for authentication - DB will be keyed by User.SerialID - this will allow e.g. change of auth method, email etc keeping same actual user"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First name e.g. Bob",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name e.g. Smith",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatus"
+          },
+          "clientSerialID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

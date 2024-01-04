@@ -1,0 +1,37 @@
+
+	"data": [
+		{
+			"x": [1,2,3],
+			"y": [4,5,6],
+			"type": "scatter",
+			"name": Scenario Type
+			"legendgroup": Scenario Type,
+			"marker": { 
+				"color": Color defined by preprocessing
+			},
+			"line": { 
+				"color": Color define by preprocessing
+			},
+			"hovertemplate": An html string for the flyover - preprocessed extra info, x, y etc
+			"showlegend": false // all exept for the first 
+		}, 
+		.
+		. 
+		.
+	]
+
+	
+	"layout": {
+		"xaxis": {
+			"rangemode": "tozero",
+			"showline": true,
+			"linecolor": "lightblue"
+		},
+		"yaxis": {
+			"title": "Valuation",
+			"showline": true,
+			"linecolor": "lightblue"
+		},
+		"plot_bgcolor": "#000000"
+	}
+}

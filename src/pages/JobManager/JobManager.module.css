@@ -1,0 +1,253 @@
+.toolbar {
+  min-height: 48px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.toolbar_subHeader {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.toolbar_items {
+  min-height: 48px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.toolbar_graph_items {
+  min-height: 38px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.item_menu {
+  font-size: 13px !important;
+}
+.toolbar_item_menu {
+  min-height: 30px !important;
+}
+.toolbar_search_menu {
+  min-height: 30px !important;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 30px;
+  word-break: break-all;
+  left: 45px;
+}
+
+.bloc_tabs {
+  display: flex;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active_tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active_tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  border-radius: 3px;
+  transform: translateX(-50%);
+  width: calc(100% + 1px);
+  height: 2px;
+  background: #014547;
+}
+
+.file_card {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.file_inputs {
+  position: relative;
+  margin-bottom: 14;
+  margin-right: 40px;
+}
+.input {
+  position: relative;
+  text-align: center;
+  opacity: 0;
+  z-index: 2;
+  margin-top: 50px;
+  height: 50px;
+  max-width: 45px;
+  margin-left: 50px;
+}
+.i {
+  width: 15;
+  height: 15;
+  padding: 0.4em;
+  margin-top: -80px;
+  color: #f55e30;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.9em;
+  font-size: 0.8em;
+}
+.img {
+  width: 10px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.line {
+  margin-top: 35px;
+  margin-left: 5px;
+}
+
+.file_button {
+  margin-top: 50px;
+  margin-left: 150px;
+}
+
+.dropdown {
+  align-items: center;
+  justify-items: center;
+}
+
+.scenario {
+  font-size: "10px";
+  color: "#16161A";
+  opacity: ".70";
+  line-height: "24.24px";
+}
+
+.fill {
+  margin-top: 48px;
+  /* margin-left: 150px; */
+  margin-right: 360px;
+}
+
+.input {
+  display: flex;
+  width: 95%;
+  position: relative;
+  align-items: center;
+}
+
+/*.input__box {
+  width: 100%;
+  border-radius: 50px;
+  padding: 20px 30px;
+  font-size: 25px;
+  border: none;
+  transition: 0.2s;
+  box-shadow: inset 0 0 5px black;
+}
+*/
+/* 
+.input__box:focus {
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.input_submit {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 12px;
+  border-radius: 50px;
+  right: 0px;
+  border: none;
+  font-size: 15px;
+  background-color: #2f74c0;
+  color: white;
+  transition: 0.2s all;
+  box-shadow: 0 0 10px black;
+}
+
+.input_submit:hover {
+  background-color: #388ae2;
+}
+
+.input_submit:active {
+  transform: scale(0.8);
+  box-shadow: 0 0 5px black;
+} */
+
+.container {
+  width: 95%;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.todos {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 47.5%;
+  padding: 15px;
+  background-color: rgb(50, 195, 205);
+}
+
+.dragactive {
+  background-color: rgb(0, 221, 236);
+}
+
+.dragcomplete {
+  background-color: rgb(255, 38, 0);
+}
+
+.remove {
+  background-color: rgb(235, 103, 80);
+}
+
+.todos__heading {
+  font-size: 30px;
+  /* text-align: center; */
+  color: white;
+}
+.todos_single_text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+
+.todos_single_text:focus {
+  outline: none;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: 40px;
+  margin: 30px 0;
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .heading {
+    margin: 15px 0;
+    font-size: 35px;
+  }
+}

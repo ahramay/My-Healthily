@@ -1,0 +1,49 @@
+/* ===== Sidebar ===== */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60px;
+    background: white;
+    z-index: 100;
+    border-right: 1px solid #C6C6C6;
+}
+
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menubar{
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+}
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 60px;
+    height: 100vh;
+    width: calc(100% - 60px);
+    background-color: #F4F4F4;
+}
+.Logo {
+    margin-top: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+.links {
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.footer {
+    justify-content: center;
+}
+.icons {
+    height: 740px;
+}
